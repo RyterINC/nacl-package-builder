@@ -24,6 +24,6 @@ docker run -d -v ${CURRENT_DIR}:/tmp/ --name nacl nacl:latest
 CONTAINER_ID=$(docker run -d --name nacl nacl:test 2>&1)
 docker cp ${CONTAINER_ID}:/tmp/pynacl_layer.zip .
 ```
-these commands will copy the `pynacl_layer.zip` directory into your current directory. You will need to upload this as a layer for your lambda function as documented in the blog post. 
+these commands will copy the `pynacl_layer.zip` package into your current directory. You will need to upload this as a layer for your lambda function as documented in the blog post. 
 
 
