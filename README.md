@@ -14,7 +14,7 @@ environment.
 You must have docker installed on your local machine
 
 ## Steps:
-
+Clone this repo, then run these commands:
 ```
 cd docker
 docker build -t nacl:latest .
