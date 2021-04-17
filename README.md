@@ -18,7 +18,6 @@ Clone this repo, then run these commands:
 ```
 cd docker
 docker build -t nacl:latest .
-docker run -d --name nacl nacl:latest
 export CURRENT_DIR=$(pwd)
 docker run -d -v ${CURRENT_DIR}:/tmp/ --name nacl nacl:latest
 export CONTAINER_ID=$(docker run -d --name nacl nacl:latest 2>&1)
