@@ -14,16 +14,11 @@ environment.
 You must have docker installed on your local machine
 
 ## Steps:
-Clone this repo, then run these commands:
-```
-cd docker
-docker build -t nacl:latest .
-export CURRENT_DIR=$(pwd)
-docker run -d -v ${CURRENT_DIR}:/tmp/ --name nacl nacl:latest
-export CONTAINER_ID=$(docker run -d --name nacl nacl:latest 2>&1)
-docker cp ${CONTAINER_ID}:/tmp/pynacl_layer.zip .
-```
-these commands will copy the `pynacl_layer.zip` package into your current directory. You will need to upload this as a layer for your lambda function as documented in the blog post. 
+ 1. Clone this repo
+ 2. `cd nacl-package-builder/docker`
+ 3. `bash package-retrieve.sh`
+ 4. You should have the `pynacl_layer.zip` in your current directory
+
 
 ## Cleanup:
 ```
@@ -31,5 +26,15 @@ docker kill ${CONTAINER_ID}
 docker rm ${CONTAINER_ID}
 docker rmi nacl:latest
 ```
+
+## What went wrong
+
+- Check that the container is running. 
+
+- If the container is running and there was no package, `docker exec` into the container and try running the commands manually from the dockerfile. 
+
+- If there is something wrong with the commands, let me know.
+
+
 
 
